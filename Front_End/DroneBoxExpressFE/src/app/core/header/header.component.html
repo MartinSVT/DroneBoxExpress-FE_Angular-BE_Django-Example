@@ -1,0 +1,46 @@
+<header class="base_header">
+    <nav class="base_nav">
+        <div class="general_nav">
+            <a routerLink="/home">Home</a>
+            <a routerLink="/contacts">Contacts</a>
+            <a routerLink="/about">About Us</a>
+        </div>
+        <div class="logo">
+            <a routerLink="/home">
+                <img class="logo_img" src="../../../assets/DBE_logo.jpg" alt="">
+            </a>
+            <!-- {% if profile.pk %} -->
+                <p> Hello profile.get_custom_name</p>
+            <!-- {% else %} -->
+                <p> Hello Guest</p>
+            <!-- {% endif %} -->
+        </div>
+        <div class="type_nav">
+            <!-- {% if profile.pk %} -->
+                <!-- {% if user.is_staff == "true" %} -->
+                    <a routerLink="/operations">Operations</a>
+                    <a routerLink="/addArticle">Add Article</a>
+                <!-- {% endif %} -->
+
+                <!-- If user.is_staff = True -->
+                <a routerLink="/orders">Orders</a>
+                <!-- else  -->
+                <a routerLink="/staffOrders">Orders</a>
+
+                <a routerLink="/viewProfile">Profile</a>
+                <a routerLink="/logout">Logout</a>
+            <!-- {% else %} -->
+                <a routerLink="/register">Register</a>
+                <a routerLink="/login">Login</a>
+            <!-- {% endif %} -->
+        </div>
+    </nav>
+    <!-- {% if profile.profile_picture %} -->
+    <div class="prof_logo">
+        <img src="" alt="">
+    </div>
+    <!-- else -->
+    <div class="prof_logo">
+        <img src="../../../assets/def_prof_pic.jpg" alt="">
+    </div>
+<!-- </header> -->

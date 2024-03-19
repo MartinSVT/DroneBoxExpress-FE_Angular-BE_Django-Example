@@ -7,6 +7,8 @@ import { AirportDeleteComponent } from './airport-delete/airport-delete.componen
 import { RouteAddComponent } from './route-add/route-add.component';
 import { RouteEditComponent } from './route-edit/route-edit.component';
 import { RouteDeleteComponent } from './route-delete/route-delete.component';
+import { RouterModule } from '@angular/router';
+import { OperationsRoutingModule } from './opertations.routing.module';
 
 
 
@@ -21,7 +23,9 @@ import { RouteDeleteComponent } from './route-delete/route-delete.component';
     RouteDeleteComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    OperationsRoutingModule,
+    RouterModule,
   ],
   exports: [
     MainViewComponent,

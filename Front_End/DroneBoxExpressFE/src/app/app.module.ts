@@ -15,12 +15,12 @@ import { UserModule } from './user/user.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     CoreModule,
     OperationsModule,
     OrdersModule,
     SharedModule,
-    UserModule
+    UserModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,6 +6,8 @@ import { DeleteOrderComponent } from './delete-order/delete-order.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
 import { ListOrdersComponent } from './list-orders/list-orders.component';
 import { StaffListOrdersComponent } from './staff-list-orders/staff-list-orders.component';
+import { OrderRoutingModule } from './orders.routing.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -19,7 +21,9 @@ import { StaffListOrdersComponent } from './staff-list-orders/staff-list-orders.
     StaffListOrdersComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    OrderRoutingModule,
+    RouterModule,
   ],
   exports: [
     CreateNewOrderComponent,

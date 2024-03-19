@@ -1,1 +1,26 @@
-<p>home works!</p>
+<section class="main_section">
+    <section class="home_section">
+    <h1 class="section_heading">Latest News and Updates</h1>
+        <!-- {% if articles %}
+            {% for article in articles %} -->
+                <article class="news_article">
+                    <!-- <h2>{{ article.article_title }}</h2>
+                    <div>{{ article.article_content }}</div>
+                    <p>Author: {{ article.article_author }}</p>
+                    <p>Last Updated At: {{ article.updated_date }}</p>
+                    <p>Created on: {{ article.created_date }}</p> -->
+                    <!-- {% if profile.profile_type == "Editor" and profile.pk == article.article_author_key %} -->
+                        <div>
+                            <a class="a_button_inside" routerLink="/editArticle">Edit Article</a>
+                            <a class="a_button_inside" routerLink="/deleteArticle">Delete Article</a>
+                        </div>
+                    <!-- {% endif %} -->
+                </article>
+            <!-- {% endfor %}
+        {% else %} -->
+            <article class="news_article">
+                <h1 class="section_heading"> There are currently no articles</h1>
+            </article>
+        <!-- {% endif %} -->
+    </section>
+</section>

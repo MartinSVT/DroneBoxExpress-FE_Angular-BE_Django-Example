@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { UserMainService } from '../user-main-service.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -6,5 +9,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  constructor(private userService: UserMainService, private router: Router) {}
+
+  login(form: NgForm) {
+    if (form.invalid) {
+      return;
+    }
+
+    this.userService.login();
+    this.router.navigate(['/home']);
+  }
 
 }
