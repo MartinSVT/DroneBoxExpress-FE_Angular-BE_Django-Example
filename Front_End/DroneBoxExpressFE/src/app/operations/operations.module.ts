@@ -9,6 +9,7 @@ import { RouteEditComponent } from './route-edit/route-edit.component';
 import { RouteDeleteComponent } from './route-delete/route-delete.component';
 import { RouterModule } from '@angular/router';
 import { OperationsRoutingModule } from './opertations.routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -24,6 +25,8 @@ import { OperationsRoutingModule } from './opertations.routing.module';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     OperationsRoutingModule,
     RouterModule,
   ],

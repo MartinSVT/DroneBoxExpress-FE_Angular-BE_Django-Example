@@ -20,6 +20,7 @@ from rest_framework.authtoken import views
 
 urlpatterns = [
       path('admin/', admin.site.urls),
-      path('',include('DroneBoxExpressBE.UserAccount.urls')),
-      path('api-token-auth', views.obtain_auth_token)
+      path('', include('DroneBoxExpressBE.UserAccount.urls')),
+      path('customer/', include('DroneBoxExpressBE.CustomerLogic.urls')),
+      path('api-token-auth', views.obtain_auth_token),
 ]

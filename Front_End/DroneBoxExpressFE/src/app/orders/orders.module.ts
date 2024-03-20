@@ -8,6 +8,7 @@ import { ListOrdersComponent } from './list-orders/list-orders.component';
 import { StaffListOrdersComponent } from './staff-list-orders/staff-list-orders.component';
 import { OrderRoutingModule } from './orders.routing.module';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -22,6 +23,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     OrderRoutingModule,
     RouterModule,
   ],
