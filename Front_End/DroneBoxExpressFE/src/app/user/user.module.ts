@@ -9,6 +9,7 @@ import { UserRoutingModule } from './user.routing.module';
 import { RouterModule } from '@angular/router';
 import { ViewComponent } from './view/view.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppModule } from '../app.module';
 
 
 @NgModule({

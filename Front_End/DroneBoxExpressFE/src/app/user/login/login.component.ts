@@ -15,9 +15,9 @@ export class LoginComponent {
     if (form.invalid) {
       return;
     }
-
-    this.userService.login();
-    this.router.navigate(['/home']);
+    this.userService.login(form.value.username, form.value.password).subscribe(() => {
+      this.router.navigate(['/home']);
+    });
   }
 
 }

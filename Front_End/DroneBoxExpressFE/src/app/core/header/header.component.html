@@ -9,38 +9,32 @@
             <a routerLink="/home">
                 <img class="logo_img" src="../../../assets/DBE_logo.jpg" alt="">
             </a>
-            <!-- {% if profile.pk %} -->
-                <p> Hello profile.get_custom_name</p>
-            <!-- {% else %} -->
-                <p> Hello Guest</p>
-            <!-- {% endif %} -->
+            <p *ngIf="isLoggedIn"> Hello {{CurrentUserData.username}}</p>
+            <p *ngIf="!isLoggedIn"> Hello Guest</p>
         </div>
         <div class="type_nav">
-            <!-- {% if profile.pk %} -->
-                <!-- {% if user.is_staff == "true" %} -->
-                    <a routerLink="/operations">Operations</a>
-                    <a routerLink="/addArticle">Add Article</a>
-                <!-- {% endif %} -->
-
-                <!-- If user.is_staff = True -->
-                <a routerLink="/orders">Orders</a>
-                <!-- else  -->
-                <a routerLink="/staffOrders">Orders</a>
-
-                <a routerLink="/viewProfile">Profile</a>
-                <a routerLink="/logout">Logout</a>
-            <!-- {% else %} -->
-                <a routerLink="/register">Register</a>
-                <a routerLink="/login">Login</a>
-            <!-- {% endif %} -->
+                <ng-container *ngIf="isLoggedIn">
+                    <ng-container *ngIf="CurrentUserData.is_staff==true">
+                        <a routerLink="/operations">Operations</a>
+                        <a routerLink="/addArticle">Add Article</a> 
+                    </ng-container>  
+                </ng-container>   
+                <ng-container *ngIf="isLoggedIn">
+                    <ng-container *ngIf="!CurrentUserData.is_staff==true">
+                        <a routerLink="/orders">Orders</a>
+                    </ng-container>  
+                </ng-container>   
+                <ng-container *ngIf="isLoggedIn">
+                    <ng-container *ngIf="CurrentUserData.is_staff==true">
+                         <a routerLink="/staffOrders">Orders</a>
+                    </ng-container>  
+                </ng-container> 
+                <a *ngIf="isLoggedIn" routerLink="/viewProfile">Profile</a>
+                <a *ngIf="isLoggedIn" routerLink="/logout">Logout</a>
+                <a *ngIf="!isLoggedIn" routerLink="/register">Register</a>
+                <a *ngIf="!isLoggedIn" routerLink="/login">Login</a>
         </div>
     </nav>
-    <!-- {% if profile.profile_picture %} -->
-    <div class="prof_logo">
-        <img src="" alt="">
-    </div>
-    <!-- else -->
     <div class="prof_logo">
         <img src="../../../assets/def_prof_pic.jpg" alt="">
     </div>
-<!-- </header> -->

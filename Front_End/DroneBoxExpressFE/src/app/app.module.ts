@@ -6,16 +6,20 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { OperationsModule } from './operations/operations.module';
 import { OrdersModule } from './orders/orders.module';
+import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
+import { AuthStateComponent } from './auth-state/auth-state.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AuthStateComponent,
   ],
   imports: [
     BrowserModule,
     CoreModule,
+    HttpClientModule,
     OperationsModule,
     OrdersModule,
     SharedModule,
