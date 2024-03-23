@@ -1,8 +1,20 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
 
 
 # News Article Model
+class NewsModel(models.Model):
+    article_title = models.CharField(blank=False, null=False, max_length=30)
+    article_content = models.TextField(blank=False, null=False)
+    created_date = models.DateField(auto_now_add=True)
+    updated_date = models.DateField(auto_now=True)
+    article_user = models.ForeignKey(
+        to=User,
+        on_delete=models.DO_NOTHING,
+        blank=False,
+        null=False
+    )
 
 
 # Airport Model (to be implemented)

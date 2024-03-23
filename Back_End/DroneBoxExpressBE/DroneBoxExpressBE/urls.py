@@ -22,5 +22,6 @@ urlpatterns = [
       path('admin/', admin.site.urls),
       path('', include('DroneBoxExpressBE.UserAccount.urls')),
       path('customer/', include('DroneBoxExpressBE.CustomerLogic.urls')),
+      path('staff/', include('DroneBoxExpressBE.StaffLogic.urls')),
       path('api-token-auth', views.obtain_auth_token),
 ]
