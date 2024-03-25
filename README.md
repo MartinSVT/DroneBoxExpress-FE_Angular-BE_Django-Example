@@ -5,7 +5,7 @@ Angular Project Example - for testing purposes only
 The project is currently being developed and it’s not in its finished state
 
 Current Status: Functionality Completed on 80%\
-Front-End Completed on 40%
+Front-End Completed on 50%
 
 The web project is of an imaginary company for delivering packages using drones and predetermined routes, the idea is that the web application has multiple functionalities and acts as both customer platform and staff platform. Depending on the user/profile type that is currently logged in, the web application either acts as a platform to add new airports, drones, routes and news articles or acts as a customer platform where information can be viewed and individual orders can be placed, modified and deleted. The web application notifies the user for changes to his/her orders status via email (currently in development). There are 3 user profile types in the application which are handled via custom user model and associated django signals. The front end is developed with Angular 16 while the backend is developed using Django 4.2.
 
@@ -39,6 +39,8 @@ API Access Points [Development Environment]:
 * Login = POST - http://127.0.0.1:8000/api-token-aut
 * Register = POST - http://127.0.0.1:8000/register
 * User Details = GET - http://127.0.0.1:8000/get-details
+* User Update = PUT - http://127.0.0.1:8000/update/int:pk/
+* User Delete = DELETE - http://127.0.0.1:8000/delete/int:pk/
 * List Orders = GET - http://127.0.0.1:8000/customer/orders
 * Create Order = POST - http://127.0.0.1:8000/customer/orders/
 * Order Details = GET - http://127.0.0.1:8000/customer/orders/int:pk
