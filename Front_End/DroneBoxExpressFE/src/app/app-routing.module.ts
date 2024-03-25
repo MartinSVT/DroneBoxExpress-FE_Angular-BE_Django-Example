@@ -7,6 +7,7 @@ import { AboutUsComponent } from './core/about-us/about-us.component';
 import { AddArticleComponent } from './core/add-article/add-article.component';
 import { EditArticleComponent } from './core/edit-article/edit-article.component';
 import { DeleteArticleComponent } from './core/delete-article/delete-article.component';
+import { LoingFailureComponent } from './shared/loing-failure/loing-failure.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'addArticle', component: AddArticleComponent},
   { path: 'editArticle', component: EditArticleComponent},
   { path: 'deleteArticle', component: DeleteArticleComponent},
+  { path: 'loginError', component: LoingFailureComponent },
   { path: '**', redirectTo: '/404' },
   { path: '404', component: ErrorComponent },
 ];

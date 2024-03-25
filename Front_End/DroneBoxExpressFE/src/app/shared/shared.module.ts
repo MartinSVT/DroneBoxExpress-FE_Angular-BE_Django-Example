@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { LoaderComponent } from './loader/loader.component';
 import { ErrorComponent } from './error/error.component';
 import { RouterModule } from '@angular/router';
+import { LoingFailureComponent } from './loing-failure/loing-failure.component';
 
 
 
 @NgModule({
   declarations: [
     LoaderComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoingFailureComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     LoaderComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoingFailureComponent
   ]
 })
 export class SharedModule { }

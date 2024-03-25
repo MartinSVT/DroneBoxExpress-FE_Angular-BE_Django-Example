@@ -14,7 +14,7 @@ class OrderStatus(EnumMixin, Enum):
 class OrdersModel(models.Model):
     order_route = models.ForeignKey(
         to=RoutesModel,
-        on_delete=models.DO_NOTHING,
+        on_delete=models.CASCADE,
         blank=False,
         null=False,
     )
@@ -30,7 +30,7 @@ class OrdersModel(models.Model):
     )
     order_user = models.ForeignKey(
         to=User,
-        on_delete=models.DO_NOTHING,
+        on_delete=models.CASCADE,
         blank=False,
         null=False
     )

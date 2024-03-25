@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
 import { AuthStateComponent } from './auth-state/auth-state.component';
+import { appInterProvider } from './app-inter';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { AuthStateComponent } from './auth-state/auth-state.component';
     UserModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [appInterProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

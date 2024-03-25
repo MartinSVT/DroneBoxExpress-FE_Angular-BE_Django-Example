@@ -11,7 +11,7 @@ class NewsModel(models.Model):
     updated_date = models.DateField(auto_now=True)
     article_user = models.ForeignKey(
         to=User,
-        on_delete=models.DO_NOTHING,
+        on_delete=models.CASCADE,
         blank=False,
         null=False
     )
@@ -28,14 +28,14 @@ class AirportModel(models.Model):
 class RoutesModel(models.Model):
     origin_airport = models.ForeignKey(
         to=AirportModel,
-        on_delete=models.DO_NOTHING,
+        on_delete=models.CASCADE,
         blank=False,
         null=False,
         related_name='Route_Origin_Airport'
     )
     destination_airport = models.ForeignKey(
         to=AirportModel,
-        on_delete=models.DO_NOTHING,
+        on_delete=models.CASCADE,
         blank=False,
         null=False,
         related_name='Route_Destination_Airport'

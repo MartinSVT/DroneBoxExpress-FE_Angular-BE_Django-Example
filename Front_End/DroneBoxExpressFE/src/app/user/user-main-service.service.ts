@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { loginURL, userDetailsURL } from '../Environment';
+import { loginURL, registerURL, userDeleteURL, userDetailsURL, userUpdateURL } from '../Environment';
 import { tap } from 'rxjs';
 
 
@@ -55,6 +55,43 @@ export class UserMainService {
     localStorage.removeItem("user");
     this.user = null;
     this.guest = true
+  }
+
+  register(username: string, email: string, first_name: string, last_name: string, password: string, password2: string) {
+    return this.myHttp
+      .post<any>(registerURL, { username, email, first_name, last_name, password, password2}).pipe(tap(
+        (user) => {
+          console.log(user);
+          this.login(user.username, password).subscribe()
+        }
+        ));
+  }
+
+  update(username: string, email: string, first_name: string, last_name: string, password: string, password2: string) {
+    return this.myHttp
+    .put<any>(`APIInter`, { username, email, first_name, last_name, password, password2}).pipe(tap(
+      (user) => {
+        console.log(user);
+        this.login(user.username, password).subscribe()
+      }
+      ));
+  }
+
+  delete() {
+    const curToken = localStorage.getItem("token") || "";
+    const tokenValue = JSON.parse(curToken)
+    return this.myHttp.delete<any>(
+      `${userDeleteURL}${this.user.id}/`,
+      {
+        headers: {
+          'Content-Type':  'application/json',
+          'Authorization': `TOKEN ${tokenValue.token}`
+        }
+      }
+    ).pipe(tap(
+      () => {
+        this.logout();
+      }))
   }
 
 }
