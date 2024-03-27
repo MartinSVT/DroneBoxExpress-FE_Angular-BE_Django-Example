@@ -85,14 +85,14 @@ class AirportListView(api_views.ListCreateAPIView):
     queryset = AirportModel.objects.all()
     serializer_class = AirportSerializer
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAdminUser]
+    permission_classes = [IsAuthenticated]
 
 
 class AirportUpdateDeleteView(api_views.RetrieveUpdateDestroyAPIView):
     serializer_class = AirportSerializer
     queryset = AirportModel.objects.all()
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAdminUser]
+    permission_classes = [IsAuthenticated]
     lookup_url_kwarg = 'pk'
 
 
@@ -101,12 +101,12 @@ class RoutesListView(api_views.ListCreateAPIView):
     queryset = RoutesModel.objects.all()
     serializer_class = RouteSerializer
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAdminUser]
+    permission_classes = [IsAuthenticated]
 
 
 class RoutesUpdateDeleteView(api_views.RetrieveUpdateDestroyAPIView):
     serializer_class = RouteSerializer
     queryset = RoutesModel.objects.all()
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAdminUser]
+    permission_classes = [IsAuthenticated]
     lookup_url_kwarg = 'pk'

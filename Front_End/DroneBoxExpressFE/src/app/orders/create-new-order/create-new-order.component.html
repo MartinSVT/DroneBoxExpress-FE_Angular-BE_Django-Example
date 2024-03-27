@@ -5,8 +5,14 @@
             <form class="form_flex" [formGroup]="newOrderForm" (ngSubmit)="createOrder()">
                 <label for="route">Route:</label>
                 <select name="route" id="route" placeholder="Select Route" formControlName="route" required>
-                    <!-- To add from Airports Model -->
-                    <option value="test">test1</option>
+                    <ng-container *ngFor="let route of routes">
+                        <option value="{{route.id}}">
+                        <ng-container *ngFor="let airport of airports">
+                            <p *ngIf="route.origin_airport===airport.id">{{ airport.airport_name }}&#187;</p>
+                            <p *ngIf="route.destination_airport===airport.id">{{ airport.airport_name }}</p>
+                        </ng-container>
+                        </option>
+                    </ng-container>
                 </select>
                 <ng-container *ngIf="newOrderForm.get('route')?.touched">
                     <p style="color: red;" *ngIf="newOrderForm.get('route')?.errors?.['required']">Route is required!</p>
@@ -43,7 +49,13 @@
                     <p style="color: red;" *ngIf="newOrderForm.get('cost')?.errors?.['min']">Cost must be at positive number!</p>
                 </ng-container>
                 <div class="form_buttons_div">
-                    <button class="a_button_inside" id="order-submit-btn" [disabled]="newOrderForm.invalid">Create</button>
+
+                    <button 
+                    class="a_button_inside" 
+                    id="order-submit-btn" 
+                    [disabled]="newOrderForm.get('weight')?.touched || newOrderForm.invalid"
+                    >Create</button>
+
                     <a class="a_button_inside" routerLink="/orders">Back</a>
                 </div>
             </form>
