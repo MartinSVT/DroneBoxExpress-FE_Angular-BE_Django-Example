@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHandler } from '@angular/common/http';
 import { loginURL, registerURL, userDeleteURL, userDetailsURL, userUpdateURL } from '../Environment';
-import { tap } from 'rxjs';
+import { Observable, catchError, tap, throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 
@@ -12,7 +13,7 @@ export class UserMainService {
   public guest: boolean = true;
   public user: any;
 
-  constructor(private myHttp: HttpClient) {}
+  constructor(private myHttp: HttpClient, private router: Router) {}
 
   get isLogged(): boolean {
     return !this.guest;
@@ -24,13 +25,12 @@ export class UserMainService {
 
   login(username: string, password: string) {
     return this.myHttp
-      .post<any>(loginURL, { username, password}).pipe(tap(
-        (token) => {
+      .post<any>(loginURL, { username, password}).pipe(
+        tap((token) => {
           console.log(token);
           localStorage.setItem("token", JSON.stringify(token));
           this.userDetaills().subscribe()
-        }
-        ));
+          }))
   }
 
   userDetaills() {

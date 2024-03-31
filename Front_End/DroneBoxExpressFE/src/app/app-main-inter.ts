@@ -41,7 +41,12 @@ import { UserMainService } from './user/user-main-service.service';
           if (err.status === 401) {
             this.router.navigate(['/404']);
           } else {
-            this.router.navigate(['/404']);
+            if (err.error.non_field_errors[0] === "Unable to log in with provided credentials.") {
+                this.router.navigate(['/loginError']);
+                this.router.navigate(['/loginError']);
+            } else {
+                this.router.navigate(['/404']);
+            }
           }
           return [err];
         })
