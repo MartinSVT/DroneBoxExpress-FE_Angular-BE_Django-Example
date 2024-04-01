@@ -24,15 +24,16 @@ export class EditComponent {
     email: [`${this.CurrentUserData.email}`, [Validators.required, Validators.email]],
     firstName: [`${this.CurrentUserData.first_name}`, [Validators.required, Validators.minLength(2)]],
     lastName: [`${this.CurrentUserData.last_name}`, [Validators.required, Validators.minLength(2)]],
-    passGroup: this.myFormBuilder.group(
-      {
-        password1: ['', [Validators.required]],
-        password2: ['', [Validators.required]],
-      },
-      {
-        validators: [matchPassVal('password1', 'password2')],
-      }
-    ),
+    // Form Fields for ChangePassword functionality
+    // passGroup: this.myFormBuilder.group(
+    //   {
+    //     password1: ['', [Validators.required]],
+    //     password2: ['', [Validators.required]],
+    //   },
+    //   {
+    //     validators: [matchPassVal('password1', 'password2')],
+    //   }
+    // ),
   });
   
   get passGroup() {
@@ -47,9 +48,9 @@ export class EditComponent {
     let email = this.edithForm.value.email as string
     let firstName = this.edithForm.value.firstName as string
     let lastName = this.edithForm.value.lastName as string
-    let pass1 = this.edithForm.value.passGroup?.password1 as string
-    let pass2 = this.edithForm.value.passGroup?.password2 as string
-    this.userService.update(username, email,firstName,lastName,pass1,pass2,).subscribe(() => {
+    // let pass1 = this.edithForm.value.passGroup?.password1 as string
+    // let pass2 = this.edithForm.value.passGroup?.password2 as string
+    this.userService.update(username, email,firstName,lastName).subscribe(() => {
       this.router.navigate(['/viewProfile']);
     });
   }

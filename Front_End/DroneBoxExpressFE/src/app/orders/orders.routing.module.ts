@@ -6,6 +6,7 @@ import { CreateNewOrderComponent } from './create-new-order/create-new-order.com
 import { EditOrderComponent } from './edit-order/edit-order.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
 import { DeleteOrderComponent } from './delete-order/delete-order.component';
+import { CompleteOrderComponent } from './complete-order/complete-order.component';
 
 const routes: Routes = [
     { path: 'orders', component: ListOrdersComponent},
@@ -17,6 +18,8 @@ const routes: Routes = [
       {path: ':orderId', component: ViewOrderComponent}]},
     { path: 'deleteOrder', children: [
       {path: ':orderId', component: DeleteOrderComponent}]},
+    { path: 'completeOrder', children: [
+      {path: ':orderId', component: CompleteOrderComponent}]},
 ];
 
 @NgModule({

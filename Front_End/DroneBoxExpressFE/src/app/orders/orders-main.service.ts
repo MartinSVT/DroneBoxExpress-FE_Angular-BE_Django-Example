@@ -49,9 +49,7 @@ export class OrdersMainService {
         "order_route": route_id,
         "order_user": user_id
     }
-    ).pipe(tap((data) => {
-      console.log(data)
-    }))
+    )
   }
 
   CreateOrder(user_id: Number, route_id: String, weight: String, cost: String, orderStatus: String) {
@@ -63,9 +61,7 @@ export class OrdersMainService {
         "order_route": route_id,
         "order_user": user_id
     }
-    ).pipe(tap((data) => {
-      console.log(data)
-    }))
+    )
   }
 
   deleteOrder(order_id: Number) {

@@ -1,3 +1,4 @@
+<ng-container *ngIf="!CurrentUserData.is_staff">
 <section class="main_section">
     <h1 class="section_heading">Orders Page</h1>
     <section class="orders_section">
@@ -58,3 +59,9 @@
         </div>
     </section>
 </section>
+</ng-container>
+<ng-container *ngIf="CurrentUserData.is_staff">
+    <section class="main_section">
+        <h1 class="section_heading">You are Not Authorized to see this page</h1>
+    </section>
+</ng-container>

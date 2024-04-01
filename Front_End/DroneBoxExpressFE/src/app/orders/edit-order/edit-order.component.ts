@@ -41,6 +41,8 @@ export class EditOrderComponent implements OnInit {
     this.orderUpdateForm.get("cost")?.setValue(String(cost))
     const weightField = this.orderUpdateForm.get("weight")
     weightField?.markAsUntouched()
+    const routeField = this.orderUpdateForm.get("route")
+    routeField?.markAsUntouched()
   }
 
   updateOrder() {

@@ -27,7 +27,6 @@ export class UserMainService {
     return this.myHttp
       .post<any>(loginURL, { username, password}).pipe(
         tap((token) => {
-          console.log(token);
           localStorage.setItem("token", JSON.stringify(token));
           this.userDetaills().subscribe()
           }))
@@ -43,7 +42,6 @@ export class UserMainService {
         }
     }).pipe(tap(
       (user) => {
-        console.log(user);
         localStorage.setItem("user", JSON.stringify(user));
         this.user = user;
         this.guest = false;
@@ -61,18 +59,16 @@ export class UserMainService {
     return this.myHttp
       .post<any>(registerURL, { username, email, first_name, last_name, password, password2}).pipe(tap(
         (user) => {
-          console.log(user);
           this.login(user.username, password).subscribe()
         }
         ));
   }
 
-  update(username: string, email: string, first_name: string, last_name: string, password: string, password2: string) {
+  update(username: string, email: string, first_name: string, last_name: string) {
     return this.myHttp
-    .put<any>(`APIInter`, { username, email, first_name, last_name, password, password2}).pipe(tap(
+    .put<any>(`APIInter`, { username, email, first_name, last_name}).pipe(tap(
       (user) => {
-        console.log(user);
-        this.login(user.username, password).subscribe()
+        this.userDetaills().subscribe()
       }
       ));
   }

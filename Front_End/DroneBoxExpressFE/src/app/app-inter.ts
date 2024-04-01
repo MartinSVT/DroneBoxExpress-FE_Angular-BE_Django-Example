@@ -37,21 +37,7 @@ import { userUpdateURL } from './Environment';
           setHeaders: {Authorization: `TOKEN ${tokenValue.token}`}
         });
       }
-      return next.handle(req).pipe(
-        catchError((err) => {
-          if (err.status === 401) {
-            this.router.navigate(['/404']);
-          } else {
-            if (err.error.non_field_errors[0] === "Unable to log in with provided credentials.") {
-                this.router.navigate(['/loginError']);
-                this.router.navigate(['/loginError']);
-            } else {
-                this.router.navigate(['/404']);
-            }
-          }
-          return [err];
-        })
-      );
+      return next.handle(req)
     }
     
   }

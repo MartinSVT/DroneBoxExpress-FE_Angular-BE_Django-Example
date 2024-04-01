@@ -53,9 +53,9 @@
                     <p style="color: red;" *ngIf="edithForm.get('lastName')?.errors?.['required']">Last Name is required!</p>
                     <p style="color: red;" *ngIf="edithForm.get('lastName')?.errors?.['minlength']">Last must be at least 2 characters!</p>
                 </ng-container>
-                <!-- Password Group Fields -->
+                
+<!-- Logic for Changing Password to be implemented !!!
                 <ng-container formGroupName="passGroup">
-                    <!-- Password 1 -->
                     <label for="password1">New Password:</label>
                     <input
                         type="password"
@@ -64,7 +64,6 @@
                         placeholder="*******"
                         formControlName="password1"
                     />
-                    <!-- Password 2 -->
                     <label for="password2">Repeat Password:</label>
                     <input
                         type="password"
@@ -79,7 +78,7 @@
                         *ngIf="passGroup?.errors?.['matchPassVal'] || passGroup?.get('password2')?.errors?.['required']"
                         >Passwords must be the same!</p>
                     </ng-container>
-                </ng-container>
+                </ng-container> -->
 
                 <div class="form_buttons_div">
                     <button class="a_button_inside" [disabled]="edithForm.invalid">Save</button>

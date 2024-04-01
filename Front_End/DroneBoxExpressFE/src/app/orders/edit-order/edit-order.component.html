@@ -7,8 +7,12 @@
                     <ng-container *ngFor="let route of routes">
                         <option value="{{route.id}}">
                         <ng-container *ngFor="let airport of airports">
-                            <p *ngIf="route.origin_airport===airport.id">{{ airport.airport_name }}&#187;</p>
-                            <p *ngIf="route.destination_airport===airport.id">{{ airport.airport_name }}</p>
+                            <ng-container *ngIf="route.origin_airport===airport.id">
+                                <p *ngIf="route.origin_airport===airport.id">{{ airport.airport_name }}_&#187;_</p>
+                                <ng-container *ngFor="let airport of airports">
+                                    <p *ngIf="route.destination_airport===airport.id">{{ airport.airport_name }}</p>
+                                </ng-container>
+                            </ng-container>
                         </ng-container>
                         </option>
                     </ng-container>
@@ -52,7 +56,7 @@
                     <button 
                     class="a_button_inside" 
                     id="order-submit-btn" 
-                    [disabled]="orderUpdateForm.get('weight')?.touched || orderUpdateForm.invalid"
+                    [disabled]="orderUpdateForm.get('weight')?.touched || orderUpdateForm.get('route')?.touched || orderUpdateForm.invalid"
                     >Save</button>
 
                     <a class="a_button_inside" routerLink="/viewOrder/{{order.id}}">Back</a>

@@ -8,6 +8,8 @@ import { AddArticleComponent } from './core/add-article/add-article.component';
 import { EditArticleComponent } from './core/edit-article/edit-article.component';
 import { DeleteArticleComponent } from './core/delete-article/delete-article.component';
 import { LoingFailureComponent } from './shared/loing-failure/loing-failure.component';
+import { UsernameErrorComponent } from './shared/username-error/username-error.component';
+import { EmailErrorComponent } from './shared/email-error/email-error.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'editArticle', component: EditArticleComponent},
   { path: 'deleteArticle', component: DeleteArticleComponent},
   { path: 'loginError', component: LoingFailureComponent },
+  { path: 'usernameError', component: UsernameErrorComponent },
+  { path: 'emailError', component: EmailErrorComponent },
   { path: '**', redirectTo: '/404' },
   { path: '404', component: ErrorComponent },
 ];

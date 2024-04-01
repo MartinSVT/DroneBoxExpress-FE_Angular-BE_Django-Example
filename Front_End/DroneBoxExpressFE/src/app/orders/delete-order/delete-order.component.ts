@@ -30,7 +30,11 @@ export class DeleteOrderComponent  implements OnInit {
 
   deleteCurrentOrder(id: Number) {
     this.orderService.deleteOrder(id).subscribe(() => {
-      this.router.navigate([`/orders`]);
+      if (this.CurrentUserData.is_staff) {
+        this.router.navigate([`/staffOrders`]);
+      } else {
+        this.router.navigate([`/orders`]);
+      }
     });
   }
 }

@@ -51,18 +51,20 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 
 class UserUpdateSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
-    password2 = serializers.CharField(write_only=True, required=True)
+    # password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
+    # password2 = serializers.CharField(write_only=True, required=True)
 
+    # Password fields to be added for Change Password Functionality
     class Meta:
         model = User
-        fields = ["id", "first_name", "last_name", "username", "email", "password", "password2"]
+        fields = ["id", "first_name", "last_name", "username", "email"]
 
-    def validate(self, attrs):
-        if attrs['password'] != attrs['password2']:
-            raise serializers.ValidationError(
-                {"password": "Password fields didn't match."})
-        return attrs
+    # Password validator once Change Password Functionality is Implemented
+    # def validate(self, attrs):
+    #     if attrs['password'] != attrs['password2']:
+    #         raise serializers.ValidationError(
+    #             {"password": "Password fields didn't match."})
+    #     return attrs
 
     def validate_email(self, value):
         user = self.context['request'].user
@@ -77,7 +79,8 @@ class UserUpdateSerializer(serializers.ModelSerializer):
         return value
 
     def update(self, instance, validated_data):
-        password = validated_data.pop('password', None)
-        instance.set_password(password)
+        # Password to be set here once Change Password Functionality is Implemented
+        # password = validated_data.pop('password', None)
+        # instance.set_password(password)
 
         return super().update(instance, validated_data)

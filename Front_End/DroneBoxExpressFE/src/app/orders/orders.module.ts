@@ -9,6 +9,7 @@ import { StaffListOrdersComponent } from './staff-list-orders/staff-list-orders.
 import { OrderRoutingModule } from './orders.routing.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CompleteOrderComponent } from './complete-order/complete-order.component';
 
 
 
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DeleteOrderComponent,
     ViewOrderComponent,
     ListOrdersComponent,
-    StaffListOrdersComponent
+    StaffListOrdersComponent,
+    CompleteOrderComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DeleteOrderComponent,
     ViewOrderComponent,
     ListOrdersComponent,
-    StaffListOrdersComponent
+    StaffListOrdersComponent,
+    CompleteOrderComponent
   ]
 })
 export class OrdersModule { }

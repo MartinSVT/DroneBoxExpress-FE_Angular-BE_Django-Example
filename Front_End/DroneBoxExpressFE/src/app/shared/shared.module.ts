@@ -4,6 +4,8 @@ import { LoaderComponent } from './loader/loader.component';
 import { ErrorComponent } from './error/error.component';
 import { RouterModule } from '@angular/router';
 import { LoingFailureComponent } from './loing-failure/loing-failure.component';
+import { UsernameErrorComponent } from './username-error/username-error.component';
+import { EmailErrorComponent } from './email-error/email-error.component';
 
 
 
@@ -11,7 +13,9 @@ import { LoingFailureComponent } from './loing-failure/loing-failure.component';
   declarations: [
     LoaderComponent,
     ErrorComponent,
-    LoingFailureComponent
+    LoingFailureComponent,
+    UsernameErrorComponent,
+    EmailErrorComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +24,9 @@ import { LoingFailureComponent } from './loing-failure/loing-failure.component';
   exports: [
     LoaderComponent,
     ErrorComponent,
-    LoingFailureComponent
+    LoingFailureComponent,
+    UsernameErrorComponent,
+    EmailErrorComponent
   ]
 })
 export class SharedModule { }
