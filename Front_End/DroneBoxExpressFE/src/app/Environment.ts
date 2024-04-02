@@ -11,3 +11,7 @@ export const OrdersURL = "ENDPOINThttp://127.0.0.1:8000/customer/orders"
 export const RoutesURL = "ENDPOINThttp://127.0.0.1:8000/staff/routes"
 // Airports API Endpoints - requires PK for PUT DELETE and GET(individual details)
 export const AirportsURL = "ENDPOINThttp://127.0.0.1:8000/staff/airports"
+
+// News Articles API Endpoints - requires PK for PUT DELETE and GET(individual details)
+export const ListNewsURL = "ENDPOINThttp://127.0.0.1:8000/staff/news"
+export const AddNewsURL = "ENDPOINThttp://127.0.0.1:8000/staff/addNews/"

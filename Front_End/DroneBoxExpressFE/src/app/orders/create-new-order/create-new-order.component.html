@@ -57,7 +57,7 @@
                     <button 
                     class="a_button_inside" 
                     id="order-submit-btn" 
-                    [disabled]="newOrderForm.get('weight')?.touched || newOrderForm.invalid"
+                    [disabled]="newOrderForm.get('weight')?.touched || newOrderForm.get('route')?.touched || newOrderForm.invalid"
                     >Create</button>
 
                     <a class="a_button_inside" routerLink="/orders">Back</a>

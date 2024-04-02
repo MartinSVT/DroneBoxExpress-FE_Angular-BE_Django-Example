@@ -26,11 +26,9 @@ export class MainViewComponent implements OnInit {
     if (this.isLoggedIn) {
       this.opsService.listRoutes().subscribe(routes => {
         this.routes = routes
-        console.log(this.routes)
       })
       this.opsService.listAirports().subscribe(airports => {
         this.airports = airports
-        console.log(this.airports)
       })
 
     }

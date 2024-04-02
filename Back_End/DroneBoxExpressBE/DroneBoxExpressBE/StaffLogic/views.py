@@ -1,3 +1,4 @@
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from rest_framework.permissions import AllowAny
 from rest_framework.authentication import TokenAuthentication
@@ -41,9 +42,6 @@ class NewsUpdateDeleteView(api_views.RetrieveUpdateDestroyAPIView):
             return Response(serializer.data)
         else:
             return Response("Error 401", status=status.HTTP_401_UNAUTHORIZED)
-
-    def get(self, request, *args, **kwargs):
-        self.retrieve(request, *args, **kwargs)
 
     def update(self, request, *args, **kwargs):
         user = User.objects.get(id=request.user.id)

@@ -29,8 +29,11 @@ import { UserMainService } from './user/user-main-service.service';
       next: HttpHandler
     ): Observable<HttpEvent<any>> {
       if (req.url.startsWith(this.APIkey)) {
+        let tokenValue = {"token":""}
         const curToken = localStorage.getItem("token") || "";
-        const tokenValue = JSON.parse(curToken)
+        if (curToken !== "") {
+          tokenValue = JSON.parse(curToken)
+        }
         req = req.clone({
           url: req.url.replace(this.APIkey, ``),
           setHeaders: {Authorization: `TOKEN ${tokenValue.token}`}

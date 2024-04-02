@@ -30,8 +30,11 @@ import { userUpdateURL } from './Environment';
       next: HttpHandler
     ): Observable<HttpEvent<any>> {
       if (req.url.startsWith(this.API)) {
+        let tokenValue = {"token":""}
         const curToken = localStorage.getItem("token") || "";
-        const tokenValue = JSON.parse(curToken)
+        if (curToken !== "") {
+          tokenValue = JSON.parse(curToken)
+        }
         req = req.clone({
           url: req.url.replace(this.API, `${userUpdateURL}${this.CurrentUserData.id}/`),
           setHeaders: {Authorization: `TOKEN ${tokenValue.token}`}

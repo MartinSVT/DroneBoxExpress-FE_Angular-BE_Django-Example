@@ -17,7 +17,7 @@ class NewsModel(models.Model):
     )
 
 
-# Airport Model (to be implemented)
+# Airport Model
 class AirportModel(models.Model):
     airport_name = models.CharField(blank=False, null=False, max_length=50)
     longitude = models.FloatField(blank=False, null=False)

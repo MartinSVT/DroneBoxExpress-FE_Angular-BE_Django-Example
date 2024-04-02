@@ -1,26 +1,28 @@
 <section class="main_section">
     <section class="home_section">
     <h1 class="section_heading">Latest News and Updates</h1>
-        <!-- {% if articles %}
-            {% for article in articles %} -->
+        <ng-container *ngIf="news">
+            <ng-container *ngFor="let article of news">
                 <article class="news_article">
-                    <!-- <h2>{{ article.article_title }}</h2>
+                    <h2>{{ article.article_title }}</h2>
                     <div>{{ article.article_content }}</div>
-                    <p>Author: {{ article.article_author }}</p>
                     <p>Last Updated At: {{ article.updated_date }}</p>
-                    <p>Created on: {{ article.created_date }}</p> -->
-                    <!-- {% if profile.profile_type == "Editor" and profile.pk == article.article_author_key %} -->
+                    <p>Created On: {{ article.created_date }}</p>
+                    <ng-container *ngIf="isLoggedIn">
+                    <ng-container *ngIf="CurrentUserData.is_staff && article.article_user == CurrentUserData.id">
                         <div>
-                            <a class="a_button_inside" routerLink="/editArticle">Edit Article</a>
-                            <a class="a_button_inside" routerLink="/deleteArticle">Delete Article</a>
+                            <a class="a_button_inside" routerLink="/editArticle/{{article.id}}">Edit Article</a>
+                            <a class="a_button_inside" routerLink="/deleteArticle/{{article.id}}">Delete Article</a>
                         </div>
-                    <!-- {% endif %} -->
+                    </ng-container>
+                    </ng-container>
                 </article>
-            <!-- {% endfor %}
-        {% else %} -->
+            </ng-container>
+        </ng-container>
+        <ng-container *ngIf="!news">
             <article class="news_article">
                 <h1 class="section_heading"> There are currently no articles</h1>
             </article>
-        <!-- {% endif %} -->
+        </ng-container>
     </section>
 </section>

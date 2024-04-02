@@ -17,8 +17,10 @@ const routes: Routes = [
   { path: 'contacts', component: ContactsComponent},
   { path: 'about', component: AboutUsComponent},
   { path: 'addArticle', component: AddArticleComponent},
-  { path: 'editArticle', component: EditArticleComponent},
-  { path: 'deleteArticle', component: DeleteArticleComponent},
+  { path: 'editArticle', children: [
+    {path: ':articleId', component: EditArticleComponent}]},
+  { path: 'deleteArticle', children: [
+    {path: ':articleId', component: DeleteArticleComponent}]},
   { path: 'loginError', component: LoingFailureComponent },
   { path: 'usernameError', component: UsernameErrorComponent },
   { path: 'emailError', component: EmailErrorComponent },

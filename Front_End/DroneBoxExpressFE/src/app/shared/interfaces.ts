@@ -28,3 +28,12 @@ export interface UserInterface {
     latitude: Number
     longitude: Number
   }
+
+  export interface News {
+    id: Number
+    article_title: String
+    article_content: String
+    article_user: Number
+    created_date: String
+    updated_date: String
+  }

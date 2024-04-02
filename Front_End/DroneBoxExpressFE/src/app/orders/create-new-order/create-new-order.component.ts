@@ -52,6 +52,8 @@ export class CreateNewOrderComponent implements OnInit {
     this.newOrderForm.get("cost")?.setValue(String(cost))
     const weightField = this.newOrderForm.get("weight")
     weightField?.markAsUntouched()
+    const routeField = this.newOrderForm.get("route")
+    routeField?.markAsUntouched()
   }
 
   ngOnInit(): void {
