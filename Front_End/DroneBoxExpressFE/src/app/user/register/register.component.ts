@@ -45,5 +45,6 @@ export class RegisterComponent {
     this.userService.register(username, email,firstName,lastName,pass1,pass2,).subscribe(() => {
       this.router.navigate(['/home']);
     });
+    // Add error handling for server down
   }
 }
